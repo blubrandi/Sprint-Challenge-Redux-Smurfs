@@ -2,69 +2,68 @@
   Be sure to import in all of the action types from `../actions`
 */
 import {
-  FETCHING_SMURFS_START,
+  // FETCHING_SMURFS_START,
   FETCHING_SMURFS_SUCCESS,
-  FETCHING_SMURFS_FAILURE,
-  ADD_SMURF_START,
+  // FETCHING_SMURFS_FAILURE,
+  // ADD_SMURF_START,
   ADD_SMURF_SUCCESS,
-  ADD_SMURF_FAILURE
+  // ADD_SMURF_FAILURE
 } from '../actions'
 
 
 const initialState = 
  {
    smurfs: [],
-   fetchingSmurfs: false,
-   addingSmurf: false,
-   updatingSmurf: false,
-   deletingSmurf: false,
-   error: null
+   getSmurfs: false,
+   error: null,
+   addSmurf: false
  }
-const rootReducer = (state = initialState, action) => {
+export const smurfReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCHING_SMURFS_START:
-    return {
-      ...state,
-      error: '',
-      fetchingSmurfs: true
-    }
+    // case FETCHING_SMURFS_START:
+    // return {
+    //   ...state,
+    //   error: '',
+    //   getSmurfs: true
+    // }
     case FETCHING_SMURFS_SUCCESS:
       return {
         ...state,
         error: '',
-        fetchingSmurfs: false,
-        smurfs: [...state.smurfs, ...action.payload]
+        getSmurfs: false,
+        smurfs: action.payload
       }
-      case FETCHING_SMURFS_FAILURE:
-        return {
-          ...state,
-          error: action.payload,
-          fetchingSmurfs: false
-        }
-      case ADD_SMURF_START:
-        return {
-          ...state,
-          addSmurf: true,
-          error:''
-        }
+      // case FETCHING_SMURFS_FAILURE:
+      //   return {
+      //     ...state,
+      //     error: action.payload,
+      //     getSmurfs: false
+      //   }
+      // case ADD_SMURF_START:
+      //   return {
+      //     ...state,
+      //     getSmurfs: false,
+      //     error:''
+      //   }
       case ADD_SMURF_SUCCESS:
         return {
           ...state,
-          addSmurf: false,
+          addSmurf: true,
+          getSmurfs: false,
           error:''
         }
-        case ADD_SMURF_FAILURE:
-        return {
-          ...state,
-          addSmurf: false,
-          error:''
-        }
+        // case ADD_SMURF_FAILURE:
+        // return {
+        //   ...state,
+        //   getSmurfs: false,
+        //   error:''
+        // }
         default:
       return state
   }
 }
 
-export default rootReducer
+// export default smurfReducer
 
 /*
   You'll only need one smurf reducer for this project.
