@@ -46,12 +46,9 @@ export const addSmurf = smurf => dispatch => {
     .post("http://localhost:3333/smurfs", smurf)
     .then(res => {
       dispatch({
-        ADD_SMURF_SUCCESS, payload: res.data
-      })
+        type: ADD_SMURF_SUCCESS, payload: res.data})
     })
     .catch(err => {
       dispatch({ type: ADD_SMURF_FAILURE, paylod: err.data });
     });
 }
-
-export default getSmurfs
