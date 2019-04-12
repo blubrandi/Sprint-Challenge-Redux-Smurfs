@@ -26,13 +26,13 @@ export const getSmurfs = () => dispatch => {
     .then(res => {
       dispatch({
         type: FETCHING_SMURFS_SUCCESS,
-        payload: res.data.results
+        payload: res.data
       })
     })
-    .catch(err => {
+    .catch(error => {
       dispatch({
         type: FETCHING_SMURFS_FAILURE,
-        payload: err
+        payload: error.data
       })
     })
 }

@@ -17,9 +17,33 @@ const initialState =
    deletingSmurf: false,
    error: null
  }
-export const rootReducer = (state = initialState, action) => {
-
+const rootReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case FETCHING_SMURFS_START:
+    return {
+      ...state,
+      error: '',
+      fetchingSmurfs: true
+    }
+    case FETCHING_SMURFS_SUCCESS:
+      return {
+        ...state,
+        error: '',
+        fetchingSmurfs: false,
+        smurfs: [...state.smurfs, ...action.payload]
+      }
+      case FETCHING_SMURFS_FAILURE:
+        return {
+          ...state,
+          error: action.payload,
+          fetchingSmurfs: false
+        }
+        default:
+      return state
+  }
 }
+
+export default rootReducer
 
 /*
   You'll only need one smurf reducer for this project.
