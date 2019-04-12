@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { CharacterList } from "../components";
+import { SmurfList } from '../components'
 import { getSmurfs } from '../actions'
 
 class SmurfsListView extends React.Component {
@@ -22,8 +22,8 @@ class SmurfsListView extends React.Component {
     }
     console.log(this.props)
     return (
-      <div className="CharactersList_wrapper">
-        <CharacterList smurfs={this.props.smurfs} />
+      <div>
+        <SmurfList smurfs={this.props.smurfs} />
       </div>
     );
   }

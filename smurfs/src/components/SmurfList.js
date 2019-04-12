@@ -6,7 +6,7 @@ const SmurfList = props => {
     return (
         <ul>
             {props.smurfs.map(smurf => {
-                return <Smurf key={smurf.id} smurf={smurf}
+                return <Smurf key={smurf.id} smurf={smurf} />
             })}
         </ul>
     )
