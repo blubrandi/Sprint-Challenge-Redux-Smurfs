@@ -2,12 +2,12 @@
   Be sure to import in all of the action types from `../actions`
 */
 import {
-  // FETCHING_SMURFS_START,
+  FETCHING_SMURFS_START,
   FETCHING_SMURFS_SUCCESS,
-  // FETCHING_SMURFS_FAILURE,
-  // ADD_SMURF_START,
+  FETCHING_SMURFS_FAILURE,
+  ADD_SMURF_START,
   ADD_SMURF_SUCCESS,
-  // ADD_SMURF_FAILURE
+  ADD_SMURF_FAILURE
 } from '../actions'
 
 
@@ -20,12 +20,12 @@ const initialState =
  }
 export const smurfReducer = (state = initialState, action) => {
   switch (action.type) {
-    // case FETCHING_SMURFS_START:
-    // return {
-    //   ...state,
-    //   error: '',
-    //   getSmurfs: true
-    // }
+    case FETCHING_SMURFS_START:
+    return {
+      ...state,
+      error: '',
+      getSmurfs: true
+    }
     case FETCHING_SMURFS_SUCCESS:
       return {
         ...state,
@@ -33,18 +33,18 @@ export const smurfReducer = (state = initialState, action) => {
         getSmurfs: false,
         smurfs: action.payload
       }
-      // case FETCHING_SMURFS_FAILURE:
-      //   return {
-      //     ...state,
-      //     error: action.payload,
-      //     getSmurfs: false
-      //   }
-      // case ADD_SMURF_START:
-      //   return {
-      //     ...state,
-      //     getSmurfs: false,
-      //     error:''
-      //   }
+      case FETCHING_SMURFS_FAILURE:
+        return {
+          ...state,
+          error: action.payload,
+          getSmurfs: false
+        }
+      case ADD_SMURF_START:
+        return {
+          ...state,
+          getSmurfs: false,
+          error:''
+        }
       case ADD_SMURF_SUCCESS:
         return {
           ...state,
@@ -52,12 +52,12 @@ export const smurfReducer = (state = initialState, action) => {
           getSmurfs: false,
           error:''
         }
-        // case ADD_SMURF_FAILURE:
-        // return {
-        //   ...state,
-        //   getSmurfs: false,
-        //   error:''
-        // }
+        case ADD_SMURF_FAILURE:
+        return {
+          ...state,
+          getSmurfs: false,
+          error:''
+        }
         default:
       return state
   }

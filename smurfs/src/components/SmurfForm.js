@@ -30,9 +30,6 @@ class SmurfForm extends React.Component {
     })
   }
 
-  onSubmit
-
-
   render() {
     return (
       <div className="smurf-form">
