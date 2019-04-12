@@ -4,7 +4,10 @@
 import {
   FETCHING_SMURFS_START,
   FETCHING_SMURFS_SUCCESS,
-  FETCHING_SMURFS_FAILURE
+  FETCHING_SMURFS_FAILURE,
+  ADD_SMURF_START,
+  ADD_SMURF_SUCCESS,
+  ADD_SMURF_FAILURE
 } from '../actions'
 
 
@@ -37,6 +40,24 @@ const rootReducer = (state = initialState, action) => {
           ...state,
           error: action.payload,
           fetchingSmurfs: false
+        }
+      case ADD_SMURF_START:
+        return {
+          ...state,
+          addSmurf: true,
+          error:''
+        }
+      case ADD_SMURF_SUCCESS:
+        return {
+          ...state,
+          addSmurf: false,
+          error:''
+        }
+        case ADD_SMURF_FAILURE:
+        return {
+          ...state,
+          addSmurf: false,
+          error:''
         }
         default:
       return state
