@@ -21,8 +21,7 @@ class SmurfForm extends React.Component {
     })
   }
 
-  addSmurf = event => {
-    event.preventDefault();
+  addSmurf = ()=> {
     this.props.addSmurf({
         name: this.state.name,
         age:this.state.age,
